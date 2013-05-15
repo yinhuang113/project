@@ -3,22 +3,21 @@ $(document).ready(function() {
 	$('#main-nav li').removeClass('current');
 	$('#main-nav .settings').addClass('current');
 	$('#main-nav>ul li.settings>ul li').removeClass('current');
-	$('#main-nav ul li.settings>ul li').eq(0).addClass('current');
+	$('#main-nav ul li.settings>ul li').eq(1).addClass('current');
 	$('#breadcrumb li:first-child a').html('Help');
-	$('#breadcrumb li:last-child a').html('Help');
+	$('#breadcrumb li:last-child a').html('About Us');
 	$('.accordion dt').click(function(){
 		$(this).next().slideToggle('fast');
 	});
   });
 </script>
-
 <section class="grid_8">
       <div class="block-border"><div class="block-content">
-        <h1>Help</h1>
+        <h1>About Us</h1>
         
         <div class="block-controls">
           <ul class="controls-buttons">
-            <li><a href="#" title="Previous page"><img src="/images/icons/fugue/navigation-180.png" width="16" height="16"></a></li>
+            <li><a href="#" title="Previous page"><img src="/images/icons/fugue/navigation.png" width="16" height="16"></a></li>
             <li class="sep"></li>
             <li><a href="#"><strong>Topics list</strong></a></li>
             <li class="sep"></li>

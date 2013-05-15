@@ -28,6 +28,7 @@ Finish::Application.routes.draw do
 
   resources :tickets
   get "users/help"
+  get "users/about"
 
   resources :companies
 

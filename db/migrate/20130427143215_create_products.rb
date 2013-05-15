@@ -10,7 +10,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :serial_numbers
       t.string :vendor_perferred
       t.string :vendor_other
-      t.string :type
+      t.string :product_type
       t.string :units
       t.string :tax
       t.string :stock_on_hand

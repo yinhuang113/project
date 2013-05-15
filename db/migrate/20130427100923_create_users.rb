@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email,  :null => false, :default => ""
       t.boolean :email_private
       t.string :phone
-      t.string :extension
+      t.string :user_extension
       t.string :fax
       t.string :mobile
       t.string :home_phone

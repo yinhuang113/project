@@ -10,7 +10,7 @@ class CreateAssets < ActiveRecord::Migration
       t.string :price
       t.string :manufacturer
       t.string :serial_numbers
-      t.string :type
+      t.string :asset_type
       t.string :refer_tickets
       t.string :refer_projects
       t.string :refer_locations

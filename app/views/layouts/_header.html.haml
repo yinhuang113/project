@@ -1,16 +1,5 @@
 %header
-  .container_12
-    %p#skin-name
-      %small
-        Constellation
-        %br Admin Skin
-      %strong 1.5
-    .server-info
-      Server:
-      %strong Apache 2.2.14
-    .server-info
-      Php:
-      %strong 5.3.1
+  
 %nav#main-nav
   %ul.container_12
     %li.home.current
@@ -76,13 +65,13 @@
       %a{:href => "#", :title => "Write"} Write
       %ul
         %li
-          %a{:href => "#", :title => "Articles"} Articles
+          %a{:href => "/projects", :title => "Project"} Project
         %li
-          %a{:href => "#", :title => "Add article"} Add article
+          %a{:href => "/projects/new", :title => "Add project"} Add project
         %li
-          %a{:href => "#", :title => "Posts"} Posts
+          %a{:href => "/products", :title => "Product"} Product
         %li
-          %a{:href => "#", :title => "Add post"} Add post
+          %a{:href => "/products/new", :title => "Add product"} Add product
     %li.comments
       %a{:href => "#", :title => "Comments"} Comments
       %ul
@@ -113,7 +102,13 @@
     %li.stats
       %a{:href => "#", :title => "Stats"} Stats
     %li.settings
-      %a{:href => "#", :title => "Settings"} Settings
+      %a{:href => "#", :title => "Help"} Help
+      %ul
+        %li
+          %a{:href => "/users/help", :title => "Help"} Help
+        %li
+          %a{:href => "/users/about", :title => "About Us"} About Us
+        
     %li.backup
       %a{:href => "#", :title => "Backup"} Backup
 #sub-nav

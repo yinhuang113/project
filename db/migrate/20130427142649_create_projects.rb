@@ -4,14 +4,14 @@ class CreateProjects < ActiveRecord::Migration
       t.integer :company_id
       t.string :approver
       t.string :phone
-      t.string :extension
+      t.string :project_extension
       t.string :site_city
       t.string :site_zip
       t.string :site_phone
       t.datetime :start_date
       t.datetime :end_date
       t.boolean :status
-      t.string :type
+      t.string :project_type
       t.string :project_manager
       t.string :budgeted_hours
       t.string :budgeted_expenses

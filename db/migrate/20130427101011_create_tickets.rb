@@ -4,14 +4,14 @@ class CreateTickets < ActiveRecord::Migration
       t.integer :company_id
       t.integer :user_id
       t.string :phone
-      t.string :extension
+      t.string :ticket_extension
       t.string :email
       t.string :site_city
       t.string :site_zip
       t.string :site_phone
       t.string :agreement_project
       t.string :status
-      t.string :type
+      t.string :ticket_type
       t.string :location
       t.string :source
       t.string :budgeted_hours

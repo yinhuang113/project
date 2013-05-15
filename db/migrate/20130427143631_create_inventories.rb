@@ -6,7 +6,7 @@ class CreateInventories < ActiveRecord::Migration
       t.string :manufacture_part
       t.string :vendor_perferred
       t.string :vendor_other
-      t.string :type
+      t.string :inventory_type
       t.string :units
       t.string :tax
       t.string :stock_on_hand

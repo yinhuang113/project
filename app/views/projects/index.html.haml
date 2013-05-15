@@ -1,102 +1,71 @@
-.list_user   
-  %h2 Listing projects
+%script
+  $('#main-nav li').removeClass('current');
+  $('#main-nav .write').addClass('current');
+  $('#main-nav>ul li.users>ul li').removeClass('current');
+  $('#main-nav ul li.users>ul li:first-child').addClass('current');
+  $('#breadcrumb li:first-child a').html('Project');
+  $('#breadcrumb li:last-child a').html('List');
   
-  %table
-    %tr
-      %th Company
-      %th Approver
-      %th Phone
-      %th Extension
-      %th Site city
-      %th Site zip
-      %th Site phone
-      %th Start date
-      %th End date
-      %th Status
-      %th Type
-      %th Project manager
-      %th Budgeted hours
-      %th Budgeted expenses
-      %th Description
-      %th Notes
-      %th Tasks
-      %th Resources name
-      %th Resources role
-      %th Schedule
-      %th Products name
-      %th Products cost
-      %th Products price
-      %th Products purchase order
-      %th Products bin
-      %th Account manager
-      %th Open issues
-      %th Time entry standard
-      %th Time entry completed
-      %th Expenses
-      %th Phone logs
-      %th Documents
-      %th Survery results
-      %th Knowledgebase articles
-      %th Phases
-      %th Billing method terms
-      %th Billing method approver
-      %th Downpayment info amount
-      %th Downpayment info breakdown
-      %th Downpayment info invoice
-      %th Downpayment info datepaid
-      %th Invoices
-      %th
-      %th
-      %th
-  
-    - @projects.each do |project|
-      %tr
-        %td= project.company_id
-        %td= project.approver
-        %td= project.phone
-        %td= project.extension
-        %td= project.site_city
-        %td= project.site_zip
-        %td= project.site_phone
-        %td= project.start_date
-        %td= project.end_date
-        %td= project.status
-        %td= project.type
-        %td= project.project_manager
-        %td= project.budgeted_hours
-        %td= project.budgeted_expenses
-        %td= project.description
-        %td= project.notes
-        %td= project.tasks
-        %td= project.resources_name
-        %td= project.resources_role
-        %td= project.schedule
-        %td= project.products_name
-        %td= project.products_cost
-        %td= project.products_price
-        %td= project.products_purchase_order
-        %td= project.products_bin
-        %td= project.account_manager
-        %td= project.open_issues
-        %td= project.time_entry_standard
-        %td= project.time_entry_completed
-        %td= project.expenses
-        %td= project.phone_logs
-        %td= project.documents
-        %td= project.survery_results
-        %td= project.knowledgebase_articles
-        %td= project.phases
-        %td= project.billing_method_terms
-        %td= project.billing_method_approver
-        %td= project.downpayment_info_amount
-        %td= project.downpayment_info_breakdown
-        %td= project.downpayment_info_invoice
-        %td= project.downpayment_info_datepaid
-        %td= project.invoices
-        %td= link_to 'Show', project
-        %td= link_to 'Edit', edit_project_path(project)
-        %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
-  
-  %br
-  
-  = link_to 'New Project', new_project_path
+%section.grid_4.project_list
+  .block-border
+    .block-content
+      %h1
+        Projects list
+        = link_to 'New Project', new_project_path
+      - @projects.each do |project|
+        .task.with-legend
+          .legend
+            - if project.tasks == "Standard"
+              %img{:height => "16", :src => "assets/icons/fugue/status.png", :width => "16"} Standard project
+            - if project.tasks == "Soon"
+              %img{:height => "16", :src => "assets/icons/fugue/status-away.png", :width => "16"} Soon overdue project
+            - if project.tasks == "Overdue"
+              %img{:height => "16", :src => "assets/icons/fugue/flag.png", :width => "16"} Overdue project
+          .task-description
+            %ul.floating-tags
+              %li.tag-time #{time_ago_in_words(project.end_date)}.
+              %li.tag-tags #{project.approver}
+              %li.tag-user #{project.project_manager}
+            %h3 Project name
+            #{project.description}
+          %ul.grid-actions.project_action
+            %li
+              = link_to edit_project_path(project), {:title =>"Edit", :class =>"with-tip"} do
+                %img{:src =>"assets/icons/fugue/pencil.png", :width =>"16", :height =>"16"}
+            %li
+              = link_to project, method: :delete, data: { confirm: 'Are you sure?'}, :title =>"Delete", :class =>"with-tip" do
+                %img{:src =>"assets/icons/fugue/cross-circle.png", :width =>"16", :height =>"16"}
+            %li
+              = link_to project, {:title =>"More Information", :class =>"with-tip"} do
+                %img{:src =>"assets/icons/fugue/navigation.png", :width =>"16", :height =>"16"}
+          %ul.task-dialog
+            %li
+              %strong Marc:
+              Don't forget to tell the client
+              %em - Yesterday
+              %ul.mini-menu
+                %li
+                  %a{:href => "#", :title => "Send mail"}
+                    %img{:height => "16", :src => "assets/icons/fugue/mail.png", :width => "16"}/
+                %li
+                  %a{:href => "#", :title => "Delete comment"}
+                    %img{:height => "16", :src => "assets/icons/fugue/cross-circle.png", :width => "16"} Delete
+            %li
+              %strong John:
+              I suggest you could ask Dan or Sandy for a little help
+              %em - 2 hours ago
+              %ul.mini-menu
+                %li
+                  %a{:href => "#", :title => "Send mail"}
+                    %img{:height => "16", :src => "assets/icons/fugue/mail.png", :width => "16"}/
+                %li
+                  %a{:href => "#", :title => "Delete comment"}
+                    %img{:height => "16", :src => "assets/icons/fugue/cross-circle.png", :width => "16"} Delete
+            %li.auto-hide
+              %form.form.input-with-button{:action => "", :method => "post", :name => "task-1-comment"}
+                %input#task-1-comment{:name => "comment", :title => "Enter comment...", :type => "text", :value => ""}
+                  %button{:type => "submit"} Add
+                  
+      %ul.message.no-margin
+        %li #{@projects.length} projects found
+

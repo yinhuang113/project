@@ -61,5 +61,12 @@ $(document).ready(function() {
     });
     $('#main-nav>ul li.users>ul li a').css('color','white');
     
+    $(document).ready(function() {	
+		$('#main-nav ul li a').css('color','white');
+  	});
+  	
+  	$("[type='tel']").css('width','96%').css('height','30px').css('background','white url(/assets/old-browsers-bg/input-bg.png) repeat-x top');
+  	$("[type='email']").css('width','96%').css('height','30px').css('background','white url(/assets/old-browsers-bg/input-bg.png) repeat-x top')
+  	
     
 });
