@@ -319,10 +319,10 @@ ActiveRecord::Schema.define(:version => 20130503081510) do
     t.string   "firstName"
     t.string   "lastName"
     t.string   "title"
-    t.string   "email",          :default => "", :null => false
+    t.string   "email",         :default => "", :null => false
     t.boolean  "email_private"
     t.string   "phone"
-    t.string   "user_extension"
+    t.string   "extension"
     t.string   "fax"
     t.string   "mobile"
     t.string   "home_phone"
@@ -331,8 +331,8 @@ ActiveRecord::Schema.define(:version => 20130503081510) do
     t.string   "site_zip"
     t.string   "site_phone"
     t.text     "notes"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end
